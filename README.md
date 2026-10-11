@@ -1,7 +1,7 @@
-# adebanjioluwatimileyin.github.io
+# adebanjiadelowo.github.io
 
 Source for my personal website, published via GitHub Pages at
-[adebanjioluwatimileyin.github.io](https://adebanjioluwatimileyin.github.io/).
+[adebanjiadelowo.github.io](https://adebanjiadelowo.github.io/).
 
 The site presents my work as an applied mathematician and machine learning
 researcher, covering PDEs, numerical methods, inverse problems, and
@@ -10,7 +10,7 @@ scientific/engineering ML systems.
 ## Structure
 
 ```
-adebanjioluwatimileyin.github.io/
+adebanjiadelowo.github.io/
 ├── index.html              Landing page
 ├── projects.html           Project portfolio
 ├── research.html           Research interests

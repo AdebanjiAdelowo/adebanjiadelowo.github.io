@@ -11,7 +11,7 @@ import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = 'https://adebanjioluwatimileyin.github.io/'
+BASE = 'https://adebanjiadelowo.github.io/'
 PROJECTS = json.loads((ROOT/'content/projects.json').read_text())
 BY_SLUG = {p['slug']: p for p in PROJECTS}
 SIZES = json.loads((ROOT/'content/image-sizes.json').read_text())
