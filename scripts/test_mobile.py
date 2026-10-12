@@ -29,6 +29,11 @@ async def main():
                     problems.append(f"{route} at {width}px: horizontal overflow {metrics}")
                 if metrics["main"] != 1 or metrics["h1"] != 1 or metrics["unnamedButtons"]:
                     problems.append(f"{route} at {width}px: semantic failure {metrics}")
+                if width == 375:
+                    await page.add_script_tag(path="node_modules/axe-core/axe.min.js")
+                    violations = await page.evaluate("async () => (await axe.run(document, {runOnly: {type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']}})).violations.map(v => ({id: v.id, impact: v.impact, count: v.nodes.length}))")
+                    if violations:
+                        problems.append(f"{route}: WCAG accessibility violations {violations}")
                 if width == 375 and route == "index.html":
                     button = page.locator(".nav-hamburger")
                     await button.click()
