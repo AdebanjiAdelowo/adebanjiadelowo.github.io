@@ -53,22 +53,22 @@
 <p class="case-result">Verified O(h³)/O(h²) velocity convergence; complete unsteady benchmark reproduction is not claimed.</p>
 <div class="cta-row"><a class="btn btn-primary" href="https://github.com/AdebanjiAdelowo/fem-cylinder-flow">View source code ↗</a><a class="btn btn-outline" href="../projects.html#cylinder-flow">All projects</a></div><p class="method-tags"><span class="tag">Finite Elements</span><span class="tag">FEniCSx</span><span class="tag">CFD</span><span class="tag">PETSc</span></p>
         <div class="research-facet">
-          <h2 class="facet-label">Problem</h2>
+          <h2 class="facet-label">Research question</h2>
           <p>Solving 2D incompressible viscous flow past a cylinder accurately enough to compare quantitatively with a published community benchmark, and separating the geometric, temporal, spatial and force-evaluation contributions to the remaining discrepancies, not just producing a qualitatively plausible flow.</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Approach</h2>
+          <h2 class="facet-label">Methodology</h2>
           <p>Velocity-pressure formulation on Taylor&ndash;Hood P<sub>2</sub>/P<sub>1</sub> elements (FEniCSx/PETSc), ruling out checkerboard pressure modes by construction; Crank&ndash;Nicolson time integration for the unsteady case. Degree-2 curved (isoparametric) cylinder geometry, checked after mesh import; four force definitions, including the variational reaction force; per-cycle extraction of the unsteady observables with a periodicity check.</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Verification</h2>
+          <h2 class="facet-label">Experimental setup and verification</h2>
           <p>A manufactured-solution study confirms the theoretical convergence rates: O(h&sup3;) velocity-L&sup2;, O(h&sup2;) velocity-H&sup1; and pressure-L&sup2;. Curved geometry reduces the cylinder-area error from &minus;0.17% (inscribed polygon) to about 2&times;10<sup>&minus;7</sup>, a statement about how well the circle is represented rather than about the order of the flow solution.</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Key finding</h2>
+          <h2 class="facet-label">Quantitative findings</h2>
           <p>The finest steady DFG 2D-1 computation (curved geometry) closely matches the published FeatFlow spectral reference (c<sub>D</sub> = 5.57953, c<sub>L</sub> = 0.010619, &Delta;P = 0.11751); drag converges monotonically over the mesh ladder, lift does not.</p>
           <p>In the unsteady 2D-2 case, a five-level study to 273k degrees of freedom combines degree-2 curved geometry, spatial and temporal refinement, audited force definitions and periodic-cycle extraction. The refined peak drag (3.226&ndash;3.228 across force definitions) and Strouhal number (0.3018) lie within their inherited benchmark ranges; the pressure difference is also within range but is not claimed as spatially converged. The refined peak lift is approximately 0.987 (0.9865&ndash;0.9879 across force definitions), slightly below the inherited 0.9900 lower bound while closely matching the published FeatFlow computation examined in the study (0.9866). Full 2D-2 reproduction is therefore not claimed.</p>
           <div class="stat-row">
@@ -88,7 +88,7 @@
         </figure>
 
         <p class="project-links"><a href="https://github.com/AdebanjiAdelowo/fem-cylinder-flow" target="_blank" rel="noopener noreferrer">Code &rarr;</a></p>
-<p class="back-link"><a href="../projects.html#cylinder-flow">← Back to project index</a></p></div>
+<div class="research-facet"><h2 class="facet-label">Reproducibility</h2><p>Source code, implementation details and available experiment records are linked in the project repository. The stated findings are specific to the documented evaluation setup.</p></div><p class="back-link"><a href="../projects.html#cylinder-flow">← Back to project index</a></p></div>
   </article>
 </main>
 <footer class="site-footer">
