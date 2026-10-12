@@ -47,3 +47,7 @@ Then open `http://localhost:8000` in a browser.
 ## License
 
 Site content and code are personal work; not licensed for reuse.
+
+## Publishing
+
+The developed portfolio is maintained on `main`. Verify that GitHub Pages publishes `main` in Settings → Pages; the default `master` branch still has legacy blog content. Run `python3 scripts/build.py --check` and `python3 scripts/check_site.py` before deployment. Employment dates are intentionally unchanged.
