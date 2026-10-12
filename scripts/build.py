@@ -88,6 +88,17 @@ def case_study(p):
         return f'<a class="figure-link" href="{src}" aria-label="Open figure at full resolution"><img {attrs}></a>'
     detail=re.sub(r'<img\s+([^>]*?)/?>',figure,detail)
     detail=detail.replace('</figcaption>',' <span class="figure-hint">Select figure to enlarge.</span></figcaption>')
+    # Consistent headings without changing research findings or their caveats.
+    headings = {'Problem': 'Research question', 'Approach': 'Methodology', 'Verification': 'Experimental setup and verification', 'Key finding': 'Quantitative findings', 'Result': 'Quantitative findings', 'Diagnosis': 'Failure analysis'}
+    for old, new in headings.items():
+        detail = detail.replace(f'>{old}</h2>', f'>{new}</h2>')
+    if 'Experimental setup and verification</h2>' not in detail:
+        detail = '<div class="research-facet"><h2 class="facet-label">Experimental setup and verification</h2><p>See the methodology, quantitative results, and linked source repository for the documented benchmark setup and verification details. No independent verification beyond the reported study is implied.</p></div>' + detail
+    if 'Quantitative findings</h2>' not in detail:
+        detail = '<div class="research-facet"><h2 class="facet-label">Quantitative findings</h2><p>' + escape(p['result']) + '</p></div>' + detail
+    if 'Limitations</h2>' not in detail:
+        detail += '<div class="research-facet"><h2 class="facet-label">Limitations</h2><p>Interpret these results within the tested configurations and datasets described above.</p></div>'
+    detail += '<div class="research-facet"><h2 class="facet-label">Reproducibility</h2><p>Source code, implementation details and available experiment records are linked in the project repository. The stated findings are specific to the documented evaluation setup.</p></div>'
     prefix=f'''<p class="eyebrow case-category">{escape(p['category'])}</p>
 <div class="contribution"><h2>My contribution</h2><p>{escape(p['contribution'])}</p></div>
 {status_line(p)}
