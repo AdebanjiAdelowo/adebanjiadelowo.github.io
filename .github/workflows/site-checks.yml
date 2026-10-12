@@ -35,6 +35,7 @@ jobs:
 
       - name: Install browser testing dependencies
         run: |
+          npm install --no-save axe-core
           python3 -m pip install playwright
           python3 -m playwright install --with-deps chromium
       - name: Test mobile, tablet and desktop layouts
