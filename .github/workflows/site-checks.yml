@@ -32,3 +32,13 @@ jobs:
               assert "adebanjioluwatimileyin.github.io" not in page.read_text(),page
           print("Project metadata and canonical-domain checks passed")
           PY
+
+      - name: Install browser testing dependencies
+        run: |
+          npm install --no-save axe-core
+          python3 -m pip install playwright
+          python3 -m playwright install --with-deps chromium
+      - name: Test mobile, tablet and desktop layouts
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 &
+          python3 scripts/test_mobile.py

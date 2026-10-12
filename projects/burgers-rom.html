@@ -51,18 +51,18 @@
 <div class="contribution"><h2>My contribution</h2><p>I compared four reduced or learned approximations with a full-order Burgers solver, including unseen initial-condition tests, and re-ran the neural surrogates on a Tesla T4 to check backend reproducibility.</p></div>
 <p class="project-status"><span class="status-badge status-verified-results">Verified results</span>Research implementation</p>
 <p class="case-result">ROM error: 0.152% in-distribution and 1.7% on the tested unseen initial-condition family, where the FNO reaches 22.6%.</p>
-<div class="cta-row"><a class="btn btn-primary" href="https://github.com/AdebanjiAdelowo/neural-surrogate-burgers">View source code ↗</a><a class="btn btn-outline" href="../projects.html#burgers-rom">All projects</a></div><div class="research-facet">
-          <h2 class="facet-label">Problem</h2>
+<div class="cta-row"><a class="btn btn-primary" href="https://github.com/AdebanjiAdelowo/neural-surrogate-burgers">View source code ↗</a><a class="btn btn-outline" href="../projects.html#burgers-rom">All projects</a></div><div class="research-facet"><h2 class="facet-label">Experimental setup and verification</h2><p>See the methodology, quantitative results, and linked source repository for the documented benchmark setup and verification details. No independent verification beyond the reported study is implied.</p></div><div class="research-facet">
+          <h2 class="facet-label">Research question</h2>
           <p>Whether classical reduced-order modelling, hyper-reduction, or operator learning gives the better fast approximate model for the nonlinear 1D viscous Burgers' equation, in-distribution, under extrapolation, and on an initial-condition family never seen in training.</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Approach</h2>
+          <h2 class="facet-label">Methodology</h2>
           <p>A pseudo-spectral solver generates ground-truth trajectories; a rank-8 POD-Galerkin ROM projects the governing equations onto a low-dimensional basis; a hybrid DEIM/local finite-difference scheme hyper-reduces the ROM's online cost (DEIM's interpolatory projection is exact, but the nonlinear-term value it interpolates is obtained via a local finite-difference surrogate rather than the true spectral evaluation, since the latter is inherently global); and an MLP surrogate and a 1D Fourier Neural Operator learn the map from parameters and from the initial field and viscosity, respectively, to the solution. The full-order solver and four approximations are compared on relative L² error and offline/online cost.</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Result</h2>
+          <h2 class="facet-label">Quantitative findings</h2>
           <p>The POD-Galerkin ROM is most accurate in-distribution and generalises best to the unseen family, but it is slower than the full solver. The DEIM/local-finite-difference variant removes the full-grid cost: over 40 test cases its mean error is 4.3% (median 0.24%, up to 53% on steep, low-viscosity cases). Its speed relative to the full solver at the benchmark resolution (Nx = 128) is implementation- and environment-dependent, so no single speed-up is claimed: averaged over the 40 test cases on the same machine, it is 1.6 to 1.9 times faster with NumPy 2.0 and slightly slower (0.8 to 0.9 times) with NumPy 1.26, whose FFT is about three times faster at this size. In a separate two-case scaling check, not a workload average, the advantage grows with resolution: at Nx = 1024, about 2.5 times faster with NumPy 1.26 and 4.1 times with NumPy 2.0. The FNO given the viscosity reaches 0.90% in distribution (5 seeds) but 22.6% on the unseen initial-condition family, so knowing the viscosity does not make it transfer to a new family; the original FNO without the viscosity input reached 2.9% and 23.4%.</p>
           <div class="stat-row">
             <div class="stat"><span class="stat-value">0.152%</span><span class="stat-label">ROM Rel. L² Error (in-dist.)</span></div>
@@ -73,7 +73,7 @@
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Diagnosis</h2>
+          <h2 class="facet-label">Failure analysis</h2>
           <p>DEIM interpolation itself is accurate (with the exact nonlinear term it matches the plain ROM). The accuracy loss comes from the local finite-difference evaluation: on steep, low-viscosity trajectories the reduced DEIM/local-FD system has positive real Jacobian eigenvalues, a linear instability that a smaller time step does not remove. A higher-order stencil lowered the median error but not the worst cases and cost more online time. Whether broader FNO training distributions or an autoregressive architecture would improve out-of-family generalisation remains an open question, outside this study. This is an empirical accuracy-runtime and generalisation study, not a claim of state-of-the-art or of a general result about any of these methods beyond this specific benchmark.</p>
         </div>
 
@@ -93,7 +93,7 @@
         </figure>
 
         <p class="project-links"><a href="https://github.com/AdebanjiAdelowo/neural-surrogate-burgers" target="_blank" rel="noopener noreferrer">Code →</a></p>
-<p class="back-link"><a href="../projects.html#burgers-rom">← Back to project index</a></p></div>
+<div class="research-facet"><h2 class="facet-label">Reproducibility</h2><p>Source code, implementation details and available experiment records are linked in the project repository. The stated findings are specific to the documented evaluation setup.</p></div><p class="back-link"><a href="../projects.html#burgers-rom">← Back to project index</a></p></div>
   </article>
 </main>
 <footer class="site-footer">

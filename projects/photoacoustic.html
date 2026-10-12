@@ -51,19 +51,19 @@
 <div class="contribution"><h2>My contribution</h2><p>I built a synthetic sparse-view pipeline and compared calibrated time reversal, a U-Net refinement, exact-model Tikhonov inversion and an unrolled network, then tested sound-speed mismatch and training-prior shift, and designed and ran two preregistered experiments on the failure that the shift exposed: a training intervention and a factorial diagnostic of the trained networks.</p></div>
 <p class="project-status"><span class="status-badge status-verified-results">Verified results</span>Completed synthetic study · two preregistered experiments reported</p>
 <p class="case-result">An unrolled network trained on four phantom families is 11 to 18 dB ahead of noise-matched Tikhonov on its sharp-edged training families, but behind it on unseen thin structures with 64 sensors. Two preregistered experiments followed: an intervention repaired one gap in the learned prior, and a factorial diagnostic found structural thinness the best-supported remaining factor, with curvature not supported as a cause and the role of edge profile unresolved. All data are synthetic.</p>
-<div class="cta-row"><a class="btn btn-primary" href="https://github.com/AdebanjiAdelowo/photoacoustic-reconstruction">View source code ↗</a><a class="btn btn-outline" href="../projects.html#photoacoustic">All projects</a></div><p class="method-tags"><span class="tag">Photoacoustic tomography</span><span class="tag">Tikhonov inversion</span><span class="tag">Unrolled networks</span><span class="tag">Distribution shift</span><span class="tag">Preregistered experiments</span></p>
+<div class="cta-row"><a class="btn btn-primary" href="https://github.com/AdebanjiAdelowo/photoacoustic-reconstruction">View source code ↗</a><a class="btn btn-outline" href="../projects.html#photoacoustic">All projects</a></div><div class="research-facet"><h2 class="facet-label">Quantitative findings</h2><p>An unrolled network trained on four phantom families is 11 to 18 dB ahead of noise-matched Tikhonov on its sharp-edged training families, but behind it on unseen thin structures with 64 sensors. Two preregistered experiments followed: an intervention repaired one gap in the learned prior, and a factorial diagnostic found structural thinness the best-supported remaining factor, with curvature not supported as a cause and the role of edge profile unresolved. All data are synthetic.</p></div><p class="method-tags"><span class="tag">Photoacoustic tomography</span><span class="tag">Tikhonov inversion</span><span class="tag">Unrolled networks</span><span class="tag">Distribution shift</span><span class="tag">Preregistered experiments</span></p>
         <div class="research-facet">
-          <h2 class="facet-label">Problem</h2>
+          <h2 class="facet-label">Research question</h2>
           <p>Reconstructing the initial pressure distribution of an imaged structure from sparse-view photoacoustic sensor measurements, a PDE-governed acoustic inverse problem in which classical time-reversal reconstruction degrades into streak artefacts as the sensor array is undersampled. The study asks when a learned reconstruction is better than a model-based one, what that advantage depends on, and what explains its failures on images unlike the training set.</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Approach</h2>
+          <h2 class="facet-label">Methodology</h2>
           <p>A synthetic acoustic forward model (<code>j-Wave</code>) simulates PML-bounded wave propagation from seeded phantoms on a 64 &times; 64 grid to a sparse circular array of 16 or 64 sensors. Four reconstructions are compared: time reversal, amplitude-calibrated by one least-squares gain per sensor count; a U-Net that refines the time-reversal estimate; Tikhonov-regularised least squares through the forward simulator written as an explicit matrix; and an unrolled network that alternates a small CNN with exact Tikhonov data-consistency solves. Calibration gains and the Tikhonov weight are fitted on the training split only.</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Verification</h2>
+          <h2 class="facet-label">Experimental setup and verification</h2>
           <p>400 held-out test images and 5 independently trained networks per learned method, with 95% bootstrap intervals over images reported separately from the spread between networks. The Tikhonov matrix reproduces the simulator, and its adjoint, gradient and normal equations are tested. The protocols of the mismatch, unrolled and mixed-family experiments were fixed before their results were seen. The two follow-up experiments were preregistered: hypotheses, numerical thresholds and decision rules were committed to the repository before any network was trained or any test image reconstructed, and negative and unexpected outcomes are reported as they came.</p>
         </div>
 
@@ -150,7 +150,7 @@
         </figure>
 
         <p class="project-links"><a href="https://github.com/AdebanjiAdelowo/photoacoustic-reconstruction" target="_blank" rel="noopener noreferrer">Code →</a></p>
-<p class="back-link"><a href="../projects.html#photoacoustic">← Back to project index</a></p></div>
+<div class="research-facet"><h2 class="facet-label">Reproducibility</h2><p>Source code, implementation details and available experiment records are linked in the project repository. The stated findings are specific to the documented evaluation setup.</p></div><p class="back-link"><a href="../projects.html#photoacoustic">← Back to project index</a></p></div>
   </article>
 </main>
 <footer class="site-footer">

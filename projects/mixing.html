@@ -55,22 +55,22 @@
 <p class="thesis-title-note">Formal M.Sc. thesis title: <em>&ldquo;Bounds on mixing of passive scalars advected by incompressible energy and enstrophy constrained flows and Anomalous dissipation&rdquo;</em> (Univ. of L'Aquila, 2021). The heading above is this project's own descriptive title.</p>
 <p>The Python implementation, numerical report and resolution study were developed in 2026 and extend the 2021 thesis topic; they are not the original submitted thesis, which is unchanged.</p>
         <div class="research-facet">
-          <h2 class="facet-label">Problem</h2>
+          <h2 class="facet-label">Research question</h2>
           <p>How efficiently can an incompressible, enstrophy-constrained velocity field mix a passive scalar, and what are the theoretical limits on that mixing rate? Numerically: is the fitted dependence of the mixing rate on the size of the initial scalar blob a converged property of the computation?</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Approach</h2>
+          <h2 class="facet-label">Methodology</h2>
           <p>The Lin-Thiffeault-Doering (LTD) instantaneous-optimal stirring velocity is derived from first principles via a constrained-optimisation argument, then simulated on the 2-torus with a pseudo-spectral (FFT) solver, Leray projection, and adaptive RK45 time integration (ported from Gautam Iyer's original MATLAB code). A resolution study extends the computation from N=32 to N=512 Fourier modes per direction, compares successive resolutions on common time windows, and adds 2/3-rule dealiasing, time-integration tolerance, and initial-data comparisons.</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Verification</h2>
+          <h2 class="facet-label">Experimental setup and verification</h2>
           <p>The Python code reproduces the original thesis tables exactly at N=32 and N=64, and 48 automated tests check the spectral operators, norms, Leray projection, optimal velocity, transport against exact solutions, and the thesis results. On common resolved time intervals, successive resolutions agree, and dealiasing or tighter RK45 tolerances leave the fitted decay rates essentially unchanged.</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Key finding</h2>
+          <h2 class="facet-label">Quantitative findings</h2>
           <p>The original thesis protocol fits each run over the last two thirds of its resolved time, and finer grids stay resolved longer, so the fit window moves to later times as N increases. On fixed time windows the fitted exponent converges at approximately second order; the drift of the exponent obtained with the original protocol (1.61 at N=32, 1.78 at N=64, 1.40 at N=512) is primarily this moving-window effect. The effective exponent itself varies with time and differs between the two tested initial-data families, so the computations do not establish a single universal or asymptotic power-law exponent. The a⁻¹ scaling used for comparison belongs to a theoretical lower bound on the mix norm (Iyer, Kiselev and Xu); it is not a prediction that the instantaneous LTD strategy must attain.</p>
           <div class="stat-row">
             <div class="stat"><span class="stat-value">&asymp;2</span><span class="stat-label">Observed Convergence Order on Fixed Windows</span></div>
@@ -99,7 +99,7 @@
           <a href="https://github.com/AdebanjiAdelowo/Master-Thesis/raw/main/optimal_mixing_thesis_report.pdf" target="_blank" rel="noopener noreferrer">Numerical report (PDF) &rarr;</a>
           <a href="https://github.com/AdebanjiAdelowo/Master-Thesis" target="_blank" rel="noopener noreferrer">Code &rarr;</a>
         </p>
-<p class="back-link"><a href="../projects.html#mixing">← Back to project index</a></p></div>
+<div class="research-facet"><h2 class="facet-label">Reproducibility</h2><p>Source code, implementation details and available experiment records are linked in the project repository. The stated findings are specific to the documented evaluation setup.</p></div><p class="back-link"><a href="../projects.html#mixing">← Back to project index</a></p></div>
   </article>
 </main>
 <footer class="site-footer">
