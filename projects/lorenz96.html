@@ -53,22 +53,22 @@
 <p class="case-result">Localisation reduces RMSE from 4.63 (a diverged unlocalised filter) to 0.41, below the observation noise (10 seeds).</p>
 <div class="cta-row"><a class="btn btn-primary" href="https://github.com/AdebanjiAdelowo/lorenz96-data-assimilation">View source code ↗</a><a class="btn btn-outline" href="../projects.html#lorenz96">All projects</a></div><p class="method-tags"><span class="tag">Data Assimilation</span><span class="tag">EnKF</span><span class="tag">Dynamical Systems</span><span class="tag">Chaos</span></p>
         <div class="research-facet">
-          <h2 class="facet-label">Problem</h2>
+          <h2 class="facet-label">Research question</h2>
           <p>Estimating the state of a chaotic 40-dimensional dynamical system (Lorenz-96, K=40, F=8) from sparse, noisy observations, and characterising how ensemble size, localisation, and inflation govern filter performance and failure.</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Approach</h2>
+          <h2 class="facet-label">Methodology</h2>
           <p>RK4 integration of the Lorenz-96 ODEs; Benettin two-trajectory renormalisation for the largest Lyapunov exponent; stochastic Ensemble Kalman Filter with perturbed observations; Gaspari&ndash;Cohn covariance localisation; multiplicative inflation.</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Verification</h2>
+          <h2 class="facet-label">Experimental setup and verification</h2>
           <p>Estimated largest Lyapunov exponent &lambda;&#8321; &asymp; 1.69, consistent with the literature range for K=40, F=8; the EnKF implementation verified against the exact Kalman filter on a linear-Gaussian problem with a known closed-form solution.</p>
         </div>
 
         <div class="research-facet">
-          <h2 class="facet-label">Key finding</h2>
+          <h2 class="facet-label">Quantitative findings</h2>
           <p>With 20 ensemble members, Gaspari&ndash;Cohn localisation (radius 2) reduces the time-averaged analysis RMSE from 4.63 to 0.41 (10 seeds), below the observation-noise level of 1.0. The unlocalised filter it is compared with has effectively diverged (its RMSE is barely below the 4.93 of a free forecast, with severe ensemble under-dispersion), so the over-11&times; ratio measures recovery from filter divergence. Very small ensembles can settle into a stable but persistently wrong state.</p>
           <div class="stat-row">
             <div class="stat"><span class="stat-value">&gt;11&times;</span><span class="stat-label">RMSE Reduction from Localisation</span></div>
@@ -87,7 +87,7 @@
         </figure>
 
         <p class="project-links"><a href="https://github.com/AdebanjiAdelowo/lorenz96-data-assimilation" target="_blank" rel="noopener noreferrer">Code &rarr;</a></p>
-<p class="back-link"><a href="../projects.html#lorenz96">← Back to project index</a></p></div>
+<div class="research-facet"><h2 class="facet-label">Reproducibility</h2><p>Source code, implementation details and available experiment records are linked in the project repository. The stated findings are specific to the documented evaluation setup.</p></div><p class="back-link"><a href="../projects.html#lorenz96">← Back to project index</a></p></div>
   </article>
 </main>
 <footer class="site-footer">
