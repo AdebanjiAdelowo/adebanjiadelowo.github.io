@@ -1,0 +1,34 @@
+name: Portfolio checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate generated HTML
+        run: python3 scripts/build.py --check
+      - name: Check links, metadata, and sitemap
+        run: python3 scripts/check_site.py
+      - name: Validate project data and canonical domain
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          projects=json.loads(Path("content/projects.json").read_text())
+          assert len({p["slug"] for p in projects})==len(projects)
+          for p in projects:
+              for key in ("slug","title","contribution","result","status","code"):
+                  assert p.get(key), (p.get("slug"),key)
+              assert Path("content/projects",p["slug"]+".html").exists()
+          for page in [Path("index.html"), *Path(".").glob("*.html"), *Path("projects").glob("*.html")]:
+              assert "adebanjioluwatimileyin.github.io" not in page.read_text(),page
+          print("Project metadata and canonical-domain checks passed")
+          PY
