@@ -10,7 +10,7 @@ permalink: /
 
 I work at the intersection of numerical mathematics, scientific computing, machine learning, and engineering. My interests include numerical partial differential equations, inverse problems, dynamical systems, data assimilation, and reliable machine-learning models for scientific applications.
 
-[Explore research]({{ '/research/' | relative_url }}) · [Browse projects]({{ '/projects/' | relative_url }}) · [Professional experience]({{ '/experience/' | relative_url }}) · [GitHub](https://github.com/AdebanjiAdelowo)
+[Explore research]({{ '/research/' | relative_url }}) · [Browse projects]({{ '/projects/' | relative_url }}) · [Professional experience]({{ '/experience/' | relative_url }}) · [Academic CV (LaTeX)](https://github.com/AdebanjiAdelowo/selected-projects-scientific-audit/blob/main/Template/Academic_CV_Adelowo.tex) · [GitHub](https://github.com/AdebanjiAdelowo)
 
 ## Featured projects
 
