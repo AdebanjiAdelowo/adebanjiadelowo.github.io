@@ -11,6 +11,7 @@ plugins:
   - jekyll-octicons
   - jekyll-github-metadata
 header_pages:
+  - cv.html
   - research.md
   - projects.md
   - experience.md
