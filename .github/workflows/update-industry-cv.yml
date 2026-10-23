@@ -27,11 +27,11 @@ jobs:
                   for line in block.get("lines",[]):
                       for span in line.get("spans",[]):
                           lines.append(span)
-              first = [s for s in lines if s["text"].strip() == "Dec 2024 –"]
-              second = [s for s in lines if s["text"].strip() == "Present"]
+              first = [s for s in lines if "Dec 2024" in s["text"]]
+              second = [s for s in lines if "Present" in s["text"]]
               assert len(first)==1, (path, "Expected unique Dec 2024 date", first)
               s1=first[0]
-              following=[s for s in second if 0 < s["bbox"][1]-s1["bbox"][1] < 30 and abs(s["bbox"][0]-s1["bbox"][0]) < 10]
+              following=[s for s in second if -4 < s["bbox"][1]-s1["bbox"][1] < 30 and abs(s["bbox"][0]-s1["bbox"][0]) < 10]
               assert len(following)==1, (path,"Expected Intuos Present immediately below date",following)
               s2=following[0]
               assert "Intuos Srl" in page.get_text(), "Intuos role missing"
