@@ -22,29 +22,16 @@ jobs:
           for path in paths:
               doc = fitz.open(path)
               page = doc[0]
-              lines=[]
-              for block in page.get_text("dict")["blocks"]:
-                  for line in block.get("lines",[]):
-                      for span in line.get("spans",[]):
-                          lines.append(span)
-              first = [s for s in lines if "Dec 2024" in s["text"]]
-              second = [s for s in lines if "Present" in s["text"]]
-              assert len(first)==1, (path, "Expected unique Dec 2024 date", first)
-              s1=first[0]
-              following=[s for s in second if -4 < s["bbox"][1]-s1["bbox"][1] < 30 and abs(s["bbox"][0]-s1["bbox"][0]) < 10]
-              assert len(following)==1, (path,"Expected Intuos Present immediately below date",following)
-              s2=following[0]
-              assert "Intuos Srl" in page.get_text(), "Intuos role missing"
-              for span in [s1,s2]:
-                  rect=fitz.Rect(span["bbox"])
-                  rect.x1+=5
-                  page.add_redact_annot(rect,fill=(1,1,1))
+              dates = page.search_for("Dec 2024")
+              assert len(dates)==1, (path,"Expected Intuos start date",dates)
+              start_rect=dates[0]
+              candidates=page.search_for("Present")
+              matches=[r for r in candidates if abs(r.x0-start_rect.x0)<20 and 0 <= r.y0-start_rect.y0 < 40]
+              assert len(matches)==1, (path,"Expected Intuos end date",matches)
+              rect=matches[0]
+              page.add_redact_annot(rect,fill=(1,1,1))
               page.apply_redactions(images=0,graphics=0,text=0)
-              for span,replacement in [(s1,"Dec 2024 –"),(s2,"Dec 2026")]:
-                  x0,y0,x1,y1=span["bbox"]
-                  color=span["color"]
-                  rgb=((color>>16&255)/255,(color>>8&255)/255,(color&255)/255)
-                  page.insert_text((x0,span["origin"][1]),replacement,fontname="helv",fontsize=span["size"],color=rgb,overlay=True)
+              page.insert_text((rect.x0,rect.y1-2),"Dec 2026",fontname="helv",fontsize=9,color=(0,0,0),overlay=True)
               doc.save(str(path)+".tmp",garbage=4,deflate=True)
               doc.close()
               Path(str(path)+".tmp").replace(path)
