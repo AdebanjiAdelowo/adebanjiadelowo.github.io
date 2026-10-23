@@ -1,0 +1,67 @@
+name: Update published industry CV dates
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-industry-cv.yml'
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update Intuos dates in both PDF copies
+        run: |
+          python -m pip install --quiet pymupdf
+          python - <<'PY'
+          import fitz
+          from pathlib import Path
+          paths = [Path("cv.pdf"), Path("downloads/Adebanji_Adelowo_CV_ML_Data_Science.pdf")]
+          for path in paths:
+              doc = fitz.open(path)
+              page = doc[0]
+              lines=[]
+              for block in page.get_text("dict")["blocks"]:
+                  for line in block.get("lines",[]):
+                      for span in line.get("spans",[]):
+                          lines.append(span)
+              first = [s for s in lines if s["text"].strip() == "Dec 2024 –"]
+              second = [s for s in lines if s["text"].strip() == "Present"]
+              assert len(first)==1, (path, "Expected unique Dec 2024 date", first)
+              s1=first[0]
+              following=[s for s in second if 0 < s["bbox"][1]-s1["bbox"][1] < 30 and abs(s["bbox"][0]-s1["bbox"][0]) < 10]
+              assert len(following)==1, (path,"Expected Intuos Present immediately below date",following)
+              s2=following[0]
+              assert "Intuos Srl" in page.get_text(), "Intuos role missing"
+              for span in [s1,s2]:
+                  rect=fitz.Rect(span["bbox"])
+                  rect.x1+=5
+                  page.add_redact_annot(rect,fill=(1,1,1))
+              page.apply_redactions(images=0,graphics=0,text=0)
+              for span,replacement in [(s1,"Dec 2024 –"),(s2,"Dec 2026")]:
+                  x0,y0,x1,y1=span["bbox"]
+                  color=span["color"]
+                  rgb=((color>>16&255)/255,(color>>8&255)/255,(color&255)/255)
+                  page.insert_text((x0,span["origin"][1]),replacement,fontname="helv",fontsize=span["size"],color=rgb,overlay=True)
+              doc.save(str(path)+".tmp",garbage=4,deflate=True)
+              doc.close()
+              Path(str(path)+".tmp").replace(path)
+              verify=fitz.open(path)
+              txt=verify[0].get_text()
+              assert "Dec 2026" in txt and "Dec 2024" in txt and "Intuos Srl" in txt
+              print("Updated",path,"pages",len(verify))
+              verify.close()
+          assert paths[0].read_bytes()==paths[1].read_bytes(),"Industry copies differ"
+          PY
+      - name: Commit updated CV PDFs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cv.pdf downloads/Adebanji_Adelowo_CV_ML_Data_Science.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Intuos dates in public industry CV PDFs"
+            git pull --rebase origin main
+            git push
+          fi
