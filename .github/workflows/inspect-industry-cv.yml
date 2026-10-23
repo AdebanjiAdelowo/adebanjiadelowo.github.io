@@ -1,0 +1,26 @@
+name: Inspect industry CV dates
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inspect-industry-cv.yml'
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect CV PDF text
+        run: |
+          python -m pip install --quiet pymupdf
+          python - <<'PY'
+          import fitz
+          for path in ["cv.pdf", "downloads/Adebanji_Adelowo_CV_ML_Data_Science.pdf"]:
+              doc=fitz.open(path)
+              print("FILE",path,"PAGES",len(doc))
+              for i,page in enumerate(doc):
+                  lines=page.get_text().splitlines()
+                  for k,line in enumerate(lines):
+                      if any(term in line.lower() for term in ["intuos","dec 2024","present","2026"]):
+                          print("PAGE",i+1,"LINE",k,repr(lines[max(0,k-2):k+3]))
+          PY
