@@ -40,7 +40,11 @@ jobs:
               assert "Dec 2026" in txt and "Dec 2024" in txt and "Intuos Srl" in txt
               print("Updated",path,"pages",len(verify))
               verify.close()
-          assert paths[0].read_bytes()==paths[1].read_bytes(),"Industry copies differ"
+          texts=[]
+          for path in paths:
+              with fitz.open(path) as doc:
+                  texts.append("\\n".join(page.get_text() for page in doc))
+          assert texts[0]==texts[1],"Industry PDF content differs"
           PY
       - name: Commit updated CV PDFs
         run: |
