@@ -241,3 +241,13 @@ button { font: inherit; }
 .project-card .card-limit { margin-top: 10px; color: var(--muted); }
 .project-card .card-note { margin-top: 14px; font-size: .78rem; color: var(--muted); }
 .study-intro { max-width: 46em; }
+
+/* PhysicsNeMo research: scannable, keyboard-accessible study navigation. */
+.research-jump { padding: 1.1rem 1.3rem; margin: 1.4rem 0; border: 1px solid var(--border); border-radius: 10px; background: var(--soft); }
+.research-jump ul { display: flex; flex-wrap: wrap; gap: .45rem .8rem; list-style: none; padding: 0; margin: .6rem 0 0; }
+.research-jump a { display: inline-block; padding: .35rem .7rem; background: #fff; border: 1px solid var(--border); border-radius: 999px; text-decoration: none; }
+.research-jump a:hover, .research-jump a:focus-visible { text-decoration: underline; border-color: var(--link); }
+.research-updated { font-size: .94rem; color: var(--muted); border-left: 3px solid var(--link); padding: .55rem .9rem; }
+.physics-study { scroll-margin-top: calc(var(--masthead-h) + 24px); }
+.physics-study p { max-width: 75ch; }
+@media (max-width: 640px) { .research-jump { padding: .85rem; } .research-jump ul { display: block; } .research-jump li { display: inline-block; margin: 0 .3rem .5rem 0; } }

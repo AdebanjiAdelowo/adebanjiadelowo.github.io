@@ -14,6 +14,7 @@ adebanjiadelowo.github.io/
 ├── index.html              Landing page
 ├── projects.html           Project portfolio
 ├── research.html           Research interests
+├── physicsnemo.html        Five ongoing PhysicsNeMo studies and interim results
 ├── research-outputs.html   Papers, reports, and thesis writeups
 ├── experience.html         Professional experience
 ├── education.html          Education
@@ -50,4 +51,4 @@ Site content and code are personal work; not licensed for reuse.
 
 ## Publishing
 
-The developed portfolio is maintained on `main`. Verify that GitHub Pages publishes `main` in Settings → Pages; the default `master` branch still has legacy blog content. Run `python3 scripts/build.py --check` and `python3 scripts/check_site.py` before deployment. Employment dates are intentionally unchanged.
+The developed portfolio is maintained on `main`. Verify that GitHub Pages publishes `main` in Settings → Pages; the default `master` branch still has legacy blog content. Run `python3 scripts/build.py --check` and `python3 scripts/check_site.py` before deployment. Update verified employment dates and project results in the editable source content, then regenerate the published pages.
