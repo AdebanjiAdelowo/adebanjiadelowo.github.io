@@ -251,3 +251,14 @@ button { font: inherit; }
 .physics-study { scroll-margin-top: calc(var(--masthead-h) + 24px); }
 .physics-study p { max-width: 75ch; }
 @media (max-width: 640px) { .research-jump { padding: .85rem; } .research-jump ul { display: block; } .research-jump li { display: inline-block; margin: 0 .3rem .5rem 0; } }
+
+/* Responsive PhysicsNeMo experiment tables and figures. */
+.table-scroll { max-width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
+.research-table { width: 100%; border-collapse: collapse; text-align: left; font-size: .94rem; }
+.research-table caption { padding: .75rem 1rem; text-align: left; font-weight: 700; }
+.research-table th,.research-table td { padding: .75rem 1rem; border-top: 1px solid var(--border); vertical-align: top; }
+.research-table thead,.research-table tbody tr:nth-child(even) { background: var(--soft); }
+.research-figures { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,270px),1fr)); gap: 1.2rem; }
+.research-figures figure { margin: 0; padding: .8rem; border: 1px solid var(--border); border-radius: 8px; }
+.research-figures img { display: block; width: 100%; height: auto; }
+.research-figures figcaption,.figure-source { font-size: .9rem; color: var(--muted); }
