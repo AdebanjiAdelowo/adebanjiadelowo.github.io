@@ -262,3 +262,9 @@ button { font: inherit; }
 .research-figures figure { margin: 0; padding: .8rem; border: 1px solid var(--border); border-radius: 8px; }
 .research-figures img { display: block; width: 100%; height: auto; }
 .research-figures figcaption,.figure-source { font-size: .9rem; color: var(--muted); }
+
+/* Audience-specific routes for research and industry visitors. */
+.audience-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,290px),1fr)); gap: 1rem; }
+.audience-card { border: 1px solid var(--border); border-radius: 9px; background: var(--soft); padding: 1.1rem 1.25rem; }
+.audience-card h3 { margin-top: 0; }
+.audience-card .section-link { display: inline-block; margin: .25rem .7rem .25rem 0; }
