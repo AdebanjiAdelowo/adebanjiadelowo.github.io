@@ -4,30 +4,32 @@ title: Research
 permalink: /research/
 ---
 
-My research interests focus on the interface between mathematical models, numerical algorithms, and machine learning.
+# Research
+
+My work explores how numerical analysis and machine learning can be combined to understand, simulate, and infer the behavior of physical systems.
 
 ## Numerical PDEs and scientific computing
 
-Finite-element and spectral methods, computational fluid dynamics, discretization error, and reproducible numerical verification.
+Finite-element and spectral methods, computational fluid dynamics, numerical verification, and reproducible simulation.
 
-**Related work:** [Cylinder flow](https://github.com/AdebanjiAdelowo/fem-cylinder-flow), [Darcy inverse problem](https://github.com/AdebanjiAdelowo/darcy-inverse-problem).
+**Projects:** [Cylinder flow](https://github.com/AdebanjiAdelowo/fem-cylinder-flow) · [Navier–Stokes 2D](https://github.com/AdebanjiAdelowo/navier-stokes-2d)
 
 ## Inverse problems and data assimilation
 
-Recovering unknown model parameters and hidden system states from limited or noisy observations.
+Estimating unknown coefficients, parameters, or states from indirect or noisy observations.
 
-**Related work:** [Darcy inverse problem](https://github.com/AdebanjiAdelowo/darcy-inverse-problem), [Lorenz-96 data assimilation](https://github.com/AdebanjiAdelowo/lorenz96-data-assimilation), [Photoacoustic reconstruction](https://github.com/AdebanjiAdelowo/photoacoustic-reconstruction).
+**Projects:** [Darcy inverse problem](https://github.com/AdebanjiAdelowo/darcy-inverse-problem) · [Lorenz-96](https://github.com/AdebanjiAdelowo/lorenz96-data-assimilation) · [Photoacoustic reconstruction](https://github.com/AdebanjiAdelowo/photoacoustic-reconstruction)
 
-## Scientific machine learning and operator learning
+## Scientific machine learning and neural operators
 
-Learning efficient approximations of physical-system dynamics while evaluating generalization, numerical fidelity, and model limitations.
+Physics-informed learning, operator learning, surrogate modeling, and numerical evaluation of learned physical-system approximations.
 
-**Related work:** [Neural surrogate Burgers](https://github.com/AdebanjiAdelowo/neural-surrogate-burgers), [Navier–Stokes 2D](https://github.com/AdebanjiAdelowo/navier-stokes-2d).
+**Projects:** [PINO Darcy](https://github.com/AdebanjiAdelowo/physicsnemo-pino-darcy) · [FNO Darcy](https://github.com/AdebanjiAdelowo/physicsnemo-fno-darcy) · [Neural surrogate Burgers](https://github.com/AdebanjiAdelowo/neural-surrogate-burgers)
 
-## Optimization and dynamical systems
+## Mathematical background
 
-Optimization under mathematical and physical constraints, nonlinear dynamics, and model-based decision methods.
+My MSc research examined lower bounds on the mix norm of passive scalars under incompressibility and energy/enstrophy constraints. My undergraduate thesis investigated a Galerkin finite-element approach to the one-dimensional Stefan problem.
 
-**Related work:** [Topology optimization](https://github.com/AdebanjiAdelowo/fem-topology-optimization), [Lorenz-96 data assimilation](https://github.com/AdebanjiAdelowo/lorenz96-data-assimilation).
+These are areas of research experience and interest, not a claim of peer-reviewed publications.
 
-These are research directions and representative projects, not a claim of peer-reviewed publications.
+[Selected projects]({{ '/projects/' | relative_url }}) · [Academic CV]({{ '/cv.html' | relative_url }})

@@ -1,20 +1,27 @@
-# Research and engineering portfolio
+# Adebanji Oluwatimileyin Adelowo — Portfolio
 
-Source for [adebanjiadelowo.github.io](https://adebanjiadelowo.github.io/), a Jekyll/GitHub Pages portfolio for Adebanji Oluwatimileyin Adelowo.
+Personal research and engineering portfolio, published with GitHub Pages and Jekyll.
 
-## Site sections
+**Website:** https://adebanjiadelowo.github.io/
 
-- Home: introduction and selected work
-- Research: scientific themes and methodological interests
-- Projects: curated numerical computing and machine-learning work
-- Experience: professional engineering contributions
-- Writing: technical posts and research notes
-- Contact: professional links
+## Pages
 
-## Editing
-
-Update Markdown pages at the repository root. Publish technical articles in `_posts/`. The navigation is configured through `header_pages` in `_config.yml`.
+- Home — introduction and selected work
+- Research — numerical PDEs, inverse problems, and scientific ML
+- Projects — verified projects and clearly labeled experimental work
+- Experience — professional history and measured outcomes
+- CV — maintained academic CV and industry CV status
+- Contact — collaboration and professional inquiries
 
 ## Local preview
 
-With a compatible Ruby and Bundler environment, run `bundle install` and `bundle exec jekyll serve`. If this repository uses a different existing build workflow, retain that workflow instead.
+Install Ruby and Bundler, then run:
+
+```bash
+bundle install
+bundle exec jekyll serve
+```
+
+Visit the local URL printed by Jekyll.
+
+Project descriptions and reported results should be updated only when backed by repository experiments or professional records.

@@ -1,62 +1,36 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
 
 @import "{{ site.theme }}";
 
-.post img {
-        display: block;
-        border:1px solid #021a40;
-        vertical-align: top;
-        margin-left: auto;
-        margin-right: auto;
-}
+$ink: #17263d;
+$muted: #536479;
+$accent: #1367a5;
+$line: #dbe5ee;
 
-.post figcaption {
-  text-align: center;
-  font-size: .8rem;
-  font-style: italic;
-  color: light-grey;
+body { color: $ink; background: #fbfcfe; }
+.wrapper { max-width: 1040px; }
+.site-header { background: #fff; border-top: 4px solid $accent; border-bottom: 1px solid $line; }
+.site-title, .site-title:visited { color: $ink; font-weight: 700; letter-spacing: -.03em; }
+.site-nav .page-link { color: $ink; }
+a, a:visited { color: $accent; }
+a:hover, a:focus { text-decoration: underline; }
+h1, h2, h3 { color: $ink; letter-spacing: -.025em; }
+h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.18; }
+h2 { margin-top: 2.1rem; border-bottom: 1px solid $line; padding-bottom: .4rem; }
+p, li { line-height: 1.7; }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; margin: 1.5rem 0 2rem; }
+.project-card { padding: 1.3rem 1.4rem; background: #fff; border: 1px solid $line; border-radius: 12px; box-shadow: 0 5px 20px rgba(20,48,79,.045); }
+.project-card h3 { margin: .4rem 0 .6rem; font-size: 1.2rem; }
+.project-card p { color: $muted; margin-bottom: 0; }
+.eyebrow { color: $accent; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
+.post img { display: block; max-width: 100%; height: auto; margin: 1rem auto; }
+.post figcaption { text-align: center; font-size: .85rem; color: $muted; }
+pre { overflow-x: auto; }
+:focus-visible { outline: 3px solid #e8a63a; outline-offset: 3px; }
+@media (max-width: 680px) {
+  .project-grid { grid-template-columns: 1fr; }
+  .project-card { padding: 1rem; }
+  .wrapper { padding-left: 18px; padding-right: 18px; }
 }
-
-.language-python { border-left: 1px solid lightcoral; }
-
-.language-python + .language-plaintext {
-        border-left: 1px solid grey;
-        margin-left: 1rem !important;
-}
-.language-python + .language-plaintext code { background-color: white !important; }
-.language-python + .language-plaintext pre  { background-color: white !important; }
-
-// for Jupyter Notebook HTML Code Cells from https://www.fast.ai/public/css/hyde.css
-
-.input_area pre, .input_area div {
-        margin-bottom:0.1rem !important;
-        margin-top:0.1rem !important;
-        padding-bottom:0 !important;
-        padding-top:0 !important;
-}
-.output_area pre, .output_area div {
-        margin-bottom:0.1rem !important;
-        margin-top:0.1rem !important;
-        padding-bottom:0 !important;
-        padding-top:0 !important;
-        background-color: white !important;
-}
-.input_area pre {
-        border-left: 1px solid lightcoral;
-}
-.output_area pre {
-        border-left: 1px solid grey;
-        margin-left: 1rem !important;
-}
-.codecell {
-        border-right: 2px solid lightgrey;
-        margin-bottom:1rem !important;
-        margin-top:1rem !important;
-        padding-bottom:0 !important;
-        padding-top:0 !important;
-}
-
-.codecell table { width: auto; }
-
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
