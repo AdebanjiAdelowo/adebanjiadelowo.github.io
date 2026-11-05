@@ -14,6 +14,7 @@ A curated portfolio of scientific computing, numerical modeling, scientific mach
   <article class="project-card"><span class="eyebrow">Inverse problems</span><h3><a href="https://github.com/AdebanjiAdelowo/darcy-inverse-problem">Darcy inverse problem</a></h3><p>Physics-informed reconstruction of unknown coefficients; five-seed study with relative parameter error below 1%.</p></article>
   <article class="project-card"><span class="eyebrow">Neural operators</span><h3><a href="https://github.com/AdebanjiAdelowo/physicsnemo-pino-darcy">PhysicsNeMo PINO Darcy</a></h3><p>Evaluated physics weighting across multiple runs, observing lower PDE residuals with physics regularization.</p></article>
   <article class="project-card"><span class="eyebrow">Physics-informed neural networks</span><h3><a href="https://github.com/AdebanjiAdelowo/pinn-advection-diffusion">PINN advection–diffusion</a></h3><p>Numerical solution of an advection–diffusion problem with reported relative L2 error of approximately 5 × 10⁻³.</p></article>
+  <article class="project-card"><span class="eyebrow">Reduced-order modeling</span><h3><a href="https://github.com/AdebanjiAdelowo/neural-surrogate-burgers">Burgers PDE: POD, DEIM and neural surrogates</a></h3><p>Compared pseudo-spectral simulations, tensorial POD–Galerkin and DEIM reduced models, and MLP/FNO surrogates. Verified spatial convergence and tested adaptive integration; results depend on the tested parameter family and reference resolution.</p></article>
   <article class="project-card"><span class="eyebrow">Dynamical systems</span><h3><a href="https://github.com/AdebanjiAdelowo/lorenz96-data-assimilation">Lorenz-96 data assimilation</a></h3><p>Ensemble-based state estimation for chaotic dynamical systems.</p></article>
 </div>
 
@@ -21,7 +22,8 @@ A curated portfolio of scientific computing, numerical modeling, scientific mach
 
 - **[FEM cylinder flow](https://github.com/AdebanjiAdelowo/fem-cylinder-flow)** — incompressible flow simulation and drag, lift, and vortex-shedding diagnostics.
 - **[Photoacoustic reconstruction](https://github.com/AdebanjiAdelowo/photoacoustic-reconstruction)** — inverse image reconstruction from indirect observations.
-- **[Neural surrogate Burgers](https://github.com/AdebanjiAdelowo/neural-surrogate-burgers)** — surrogate approaches for a nonlinear PDE.
+- **[Optimal mixing of passive scalars](https://github.com/AdebanjiAdelowo/Master-Thesis)** — mathematical analysis of mixing under incompressibility and energy/enstrophy constraints, with pseudo-spectral numerical investigations.
+- **[Burgers reduced-order modeling](https://github.com/AdebanjiAdelowo/neural-surrogate-burgers)** — tensorial POD–Galerkin, spectral-consistent DEIM, grid-convergence checks and adaptive time integration. In the documented controlled benchmark, rank-16 tensorial POD with Radau at Nx = 2048 was 1.6–1.75× faster than the Nx = 512 full solver while meeting its mean and worst-case error benchmark; this is not a claim of uniform superiority across cases.
 - **[Navier–Stokes 2D](https://github.com/AdebanjiAdelowo/navier-stokes-2d)** — fluid simulation and reduced-order modeling.
 
 ## Generative AI and efficient ML
