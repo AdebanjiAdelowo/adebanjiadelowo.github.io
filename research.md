@@ -12,7 +12,7 @@ My work explores how numerical analysis and machine learning can be combined to 
 
 Finite-element and spectral methods, computational fluid dynamics, numerical verification, and reproducible simulation.
 
-**Projects:** [Cylinder flow](https://github.com/AdebanjiAdelowo/fem-cylinder-flow) · [Navier–Stokes 2D](https://github.com/AdebanjiAdelowo/navier-stokes-2d)
+**Projects:** [Optimal mixing of passive scalars](https://github.com/AdebanjiAdelowo/Master-Thesis) · [Burgers PDE reduced-order modeling](https://github.com/AdebanjiAdelowo/neural-surrogate-burgers) · [Cylinder flow](https://github.com/AdebanjiAdelowo/fem-cylinder-flow) · [Navier–Stokes 2D](https://github.com/AdebanjiAdelowo/navier-stokes-2d)
 
 ## Inverse problems and data assimilation
 
@@ -23,6 +23,8 @@ Estimating unknown coefficients, parameters, or states from indirect or noisy ob
 ## Scientific machine learning and neural operators
 
 Physics-informed learning, operator learning, surrogate modeling, and numerical evaluation of learned physical-system approximations.
+
+The Burgers project includes verified tensorial POD–Galerkin reduction, DEIM hyper-reduction, spatial-convergence checks and adaptive time integration, alongside learned surrogate comparisons. Reported accuracy and speed are specific to the documented numerical experiments.
 
 **Projects:** [PINO Darcy](https://github.com/AdebanjiAdelowo/physicsnemo-pino-darcy) · [FNO Darcy](https://github.com/AdebanjiAdelowo/physicsnemo-fno-darcy) · [Neural surrogate Burgers](https://github.com/AdebanjiAdelowo/neural-surrogate-burgers)
 
