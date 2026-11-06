@@ -10,7 +10,7 @@ permalink: /
 
 I develop numerical and machine-learning approaches for scientific and engineering problems, with experience spanning numerical PDEs, inverse problems, physics-informed learning, data engineering, and production ML systems.
 
-[Research]({{ '/research/' | relative_url }}) · [Selected projects]({{ '/projects/' | relative_url }}) · [Experience]({{ '/experience/' | relative_url }}) · [Academic CV]({{ '/cv.html' | relative_url }}) · [Contact]({{ '/contact/' | relative_url }})
+[Research]({{ '/research/' | relative_url }}) · [Selected projects]({{ '/projects/' | relative_url }}) · [Experience]({{ '/experience/' | relative_url }}) · [CV]({{ '/cv.html' | relative_url }}) · [Contact]({{ '/contact/' | relative_url }})
 
 ## Selected work
 
@@ -49,6 +49,6 @@ At **N-AND Italia**, I worked on operational ML and ETL pipelines using more tha
 
 ## Research and collaboration
 
-My interests include numerical analysis, scientific computing, inverse problems, dynamical systems, and reliable scientific ML. I welcome conversations about doctoral research, scientific collaborations, and engineering opportunities.
+My interests include numerical analysis, scientific computing, inverse problems, dynamical systems, and reliable scientific ML. I welcome conversations about scientific collaborations, applied research, and engineering projects.
 
 [Research areas]({{ '/research/' | relative_url }}) · [Get in touch]({{ '/contact/' | relative_url }})
