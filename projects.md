@@ -23,7 +23,7 @@ A curated portfolio of scientific computing, numerical modeling, scientific mach
 - **[FEM cylinder flow](https://github.com/AdebanjiAdelowo/fem-cylinder-flow)** — incompressible flow simulation and drag, lift, and vortex-shedding diagnostics.
 - **[Photoacoustic reconstruction](https://github.com/AdebanjiAdelowo/photoacoustic-reconstruction)** — inverse image reconstruction from indirect observations.
 - **[Optimal mixing of passive scalars](https://github.com/AdebanjiAdelowo/Master-Thesis)** — mathematical analysis of mixing under incompressibility and energy/enstrophy constraints, with pseudo-spectral numerical investigations.
-- **[Burgers reduced-order modeling](https://github.com/AdebanjiAdelowo/neural-surrogate-burgers)** — tensorial POD–Galerkin, spectral-consistent DEIM, grid-convergence checks and adaptive time integration. In the documented controlled benchmark, rank-16 tensorial POD with Radau at Nx = 2048 was 1.6–1.75× faster than the Nx = 512 full solver while meeting its mean and worst-case error benchmark; this is not a claim of uniform superiority across cases.
+- **[Burgers reduced-order modeling](https://github.com/AdebanjiAdelowo/neural-surrogate-burgers)** — tensorial POD–Galerkin, spectral-consistent DEIM, grid-convergence checks and adaptive time integration. In the documented controlled benchmark, rank-16 tensorial POD with Radau at Nx = 2048 was 1.6–1.75× faster than the Nx = 512 full solver while meeting its mean and worst-case error benchmark; Performance varies by test case.
 - **[Navier–Stokes 2D](https://github.com/AdebanjiAdelowo/navier-stokes-2d)** — fluid simulation and reduced-order modeling.
 
 ## Generative AI and efficient ML
@@ -32,7 +32,7 @@ A curated portfolio of scientific computing, numerical modeling, scientific mach
 
 ## Additional research and experimental work
 
-These repositories document ongoing or evolving experiments and are not presented as completed featured results.
+Additional projects exploring neural operators, graph-based simulation, and reproducible scientific computing. Individual repositories document their experimental status and findings.
 
 - **[PhysicsNeMo FNO Darcy](https://github.com/AdebanjiAdelowo/physicsnemo-fno-darcy)** — neural operator mode and training-budget studies.
 - **[PhysicsNeMo MeshGraphNet Vortex](https://github.com/AdebanjiAdelowo/physicsnemo-meshgraphnet-vortex)** — graph-based flow prediction and long-horizon diagnostics.
