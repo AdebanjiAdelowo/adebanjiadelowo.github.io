@@ -32,6 +32,4 @@ The Burgers project includes verified tensorial POD–Galerkin reduction, DEIM h
 
 My MSc research examined lower bounds on the mix norm of passive scalars under incompressibility and energy/enstrophy constraints. My undergraduate thesis investigated a Galerkin finite-element approach to the one-dimensional Stefan problem.
 
-These are areas of research experience and interest, not a claim of peer-reviewed publications.
-
-[Selected projects]({{ '/projects/' | relative_url }}) · [Academic CV]({{ '/cv.html' | relative_url }})
+[Selected projects]({{ '/projects/' | relative_url }}) · [CV]({{ '/cv.html' | relative_url }})
