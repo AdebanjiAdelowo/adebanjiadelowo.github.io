@@ -18,7 +18,7 @@ jobs:
           python - <<'PY'
           import fitz
           from pathlib import Path
-          paths = [Path("cv.pdf"), Path("downloads/Adebanji_Adelowo_CV_ML_Data_Science.pdf")]
+          paths = [Path("cv.pdf"), Path("downloads/Adebanji_Adelowo_CV_ML_Data_Science.pdf"), Path("downloads/cv/Adebanji_Adelowo_CV_ML_Data_Science.pdf")]
           for path in paths:
               doc = fitz.open(path)
               page = doc[0]
@@ -44,13 +44,13 @@ jobs:
           for path in paths:
               with fitz.open(path) as doc:
                   texts.append("\\n".join(page.get_text() for page in doc))
-          assert texts[0]==texts[1],"Industry PDF content differs"
+          assert all(t==texts[0] for t in texts),"Industry PDF content differs"
           PY
       - name: Commit updated CV PDFs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cv.pdf downloads/Adebanji_Adelowo_CV_ML_Data_Science.pdf
+          git add cv.pdf downloads/Adebanji_Adelowo_CV_ML_Data_Science.pdf downloads/cv/Adebanji_Adelowo_CV_ML_Data_Science.pdf
           if ! git diff --cached --quiet; then
             git commit -m "Update Intuos dates in public industry CV PDFs"
             git pull --rebase origin main

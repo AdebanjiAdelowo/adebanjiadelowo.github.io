@@ -1,0 +1,253 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[top=1.2cm,bottom=1.2cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\definecolor{accent}{RGB}{0,73,144}
+
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=black,pdfborder={0 0 0}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+% Section header
+\newcommand{\cvsec}[1]{%
+  \vspace{3pt}
+  {\color{accent}\bfseries\uppercase{#1}}\\[-3pt]
+  {\color{accent}\rule{\linewidth}{0.5pt}}%
+  \vspace{1pt}
+}
+
+% Two-column entry: date on left, content on right
+\newcommand{\entry}[2]{%
+  \noindent
+  \parbox[t]{2.6cm}{\small\raggedright\color{black!60} #1}\hspace{0.3cm}%
+  \parbox[t]{13.3cm}{#2}\par\vspace{2pt}
+}
+
+% Compact bullet list for use inside \entry
+\newenvironment{cvitems}{%
+  \begin{itemize}[leftmargin=1.1em, itemsep=1pt, topsep=2pt, parsep=0pt, label=\textbullet]
+}{%
+  \end{itemize}%
+}
+
+% Honor/award line: title + institution left, year right
+\newcommand{\honor}[3]{%
+  \noindent
+  \parbox[t]{13.2cm}{\textbf{#1} \textbar{} #2}\hfill%
+  \small\color{black!60}#3\par\vspace{2pt}%
+}
+
+\begin{document}
+
+% ── Header ──────────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries Adebanji Oluwatimileyin Adelowo}\\[2pt]
+  {\small\color{accent} Scientific Machine Learning \enspace$\cdot$\enspace Mathematical Engineering \enspace$\cdot$\enspace Probabilistic Modelling}\\[4pt]
+  {\small
+  L'Aquila, Italy
+  \enspace$\cdot$\enspace
+  \href{mailto:adelowooluwatimileyin@gmail.com}{adelowooluwatimileyin@gmail.com}
+  \enspace$\cdot$\enspace
+  +39 388 751 5527
+  \enspace$\cdot$\enspace
+  \href{https://github.com/AdebanjiAdelowo}{github.com/AdebanjiAdelowo}
+  \enspace$\cdot$\enspace
+  \href{https://adebanjiadelowo.github.io}{adebanjiadelowo.github.io}
+  }
+\end{center}
+
+\vspace{2pt}
+
+% ── Research Profile ────────────────────────────────────────────────────────
+\cvsec{Research Profile}
+
+\noindent Machine Learning practitioner with an M.Sc. in Mathematical Engineering and a B.Sc. in Mathematics (Honours). Research background in mathematical modelling, numerical methods, optimization, PDEs, and scientific computing, complemented by professional experience developing machine-learning and signal-processing systems for engineering applications.
+
+% ── Education ────────────────────────────────────────────────────────────────
+\cvsec{Education}
+
+\entry{2018 -- 2021}{%
+  \textbf{M.Sc.\ Mathematical Engineering} (Final grade: 106/110)\\
+  University of L'Aquila, Italy\\
+  \textit{Thesis:} \textit{Bounds on Mixing of Passive Scalars Advected by Incompressible
+  Energy- and Enstrophy-Constrained Flows and Anomalous Dissipation}\\
+  \textit{Relevant coursework:} Advanced Optimization; Machine Learning; Dynamical Systems and Bifurcation Theory; Scientific Computing; Functional Analysis; Partial Differential Equations; Fluid Dynamics; Numerical Methods for PDEs; Galerkin / Finite-Element Methods
+}
+
+\entry{2014 -- 2018}{%
+  \textbf{B.Sc.\ Mathematics} (Honours, CGPA 4.57/5.0)\\
+  Obafemi Awolowo University, Ile-Ife, Nigeria\\
+  \textit{Thesis:} \textit{Application of Galerkin Finite Element Method to the One-Dimensional Stefan Problem}\\
+  \textit{Relevant coursework:} Real Analysis; Complex Analysis; Topology; Measure Theory; Numerical Analysis; Ordinary Differential Equations; Probability and Statistics
+}
+
+% ── Research Experience ─────────────────────────────────────────────────────
+\cvsec{Research Experience}
+
+\entry{2020 -- 2021}{%
+  \textbf{M.Sc.\ Thesis Research} \textbar{} University of L'Aquila, Italy\\
+  Research on mathematical bounds and numerical computation for passive-scalar mixing in constrained incompressible flows.
+  \begin{cvitems}
+    \item Studied the Iyer--Kiselev--Xu lower bounds on the mix norm for passive scalars in incompressible, energy- and enstrophy-constrained flows
+    \item Studied the Lin--Thiffeault--Doering optimal-stirring framework under energy and enstrophy constraints
+    \item Simulated optimal stirring with a \href{https://github.com/AdebanjiAdelowo/Master-Thesis}{pseudo-spectral Python solver} and compared fitted mixing rates with the Iyer--Kiselev--Xu scaling
+    \item Combined mathematical analysis, numerical algorithms, and computational experiments
+  \end{cvitems}
+}
+
+\entry{2017 -- 2018}{%
+  \textbf{B.Sc.\ Thesis Research} \textbar{} Obafemi Awolowo University, Nigeria\\
+  Research on numerical methods for a two-phase free-boundary problem.
+  \begin{cvitems}
+    \item Applied Galerkin finite-element methods to the one-dimensional Stefan problem
+    \item Formulated the weak problem and developed computational algorithms for phase-boundary tracking
+    \item Studied numerical approaches to a physically motivated PDE problem
+  \end{cvitems}
+}
+
+% ── Professional Experience ─────────────────────────────────────────────────
+\cvsec{Professional Experience}
+
+\entry{Dec 2024 -- Dec 2026}{%
+  \textbf{Data Scientist} $|$ \textit{Intuos Srl}, L'Aquila, Italy
+  \begin{cvitems}
+    \item Developed aircraft flight-phase classifiers from operational telemetry; F1 score of 0.98 on an evaluation set.
+    \item Developed FFT-based audio signal-processing pipelines to analyze aircraft-engine recordings in the frequency domain, identify dominant frequency components, estimate engine RPM, and infer engine operating state across 1,500 telemetry/audio samples; validated RPM estimates against ground-truth measurements, achieving $R^2=0.80$.
+    \item Built automated flight-telemetry workflows with a reported 30\% processing-speed improvement and 80\% less manual data preparation.
+    \item Delivered REST APIs and a full-stack dashboard exposing model predictions and engineering metrics; over 200 users.
+  \end{cvitems}}
+
+\entry{Apr 2023 -- Nov 2024}{%
+  \textbf{Machine Learning Engineer} $|$ \textit{N-and Italia Srl}, Italy
+  \begin{cvitems}
+    \item Developed delivery-failure prediction models using over 5 million transaction records from approximately 150 vending machines, with reported F1 of 0.85.
+    \item Analyzed transactional and telemetry patterns to investigate vending-machine reliability and operational failure drivers.
+    \item Built ETL and KPI-monitoring workflows with reported 85\% faster reporting and monitoring coverage of over 1 million transaction records.
+  \end{cvitems}}
+
+\entry{Jan 2023 -- Mar 2023}{%
+  \textbf{Operational Data Analyst} $|$ \textit{eResult Srl}, Cesena, Italy
+  \begin{cvitems}
+    \item Optimized SQL queries, reporting 45\% faster execution, and automated recurring business-intelligence workflows.
+    \item Transformed operational data into reproducible KPI reports, with a reported 75\% reduction in reporting effort.
+    \item Built automated, customized customer relationship management (CRM) platforms using SQL and Omniaplace, its integrated software development platform, tailoring workflows and features for operational performance, efficiency, and versatility.
+  \end{cvitems}}
+
+\entry{Apr 2022 -- Oct 2022}{%
+  \textbf{Digital Engineering Intern} $|$ \textit{Bridgestone EMIA}, Rome, Italy
+  \begin{cvitems}
+    \item Developed computational-geometry algorithms and improved data structures for tire cross-section simulation and finite-element meshing, with a reported 20\% computational speed improvement.
+    \item Implemented a closest-point utility for cubic B\'ezier curves to support geometry projection and meshing operations.
+  \end{cvitems}}
+
+\entry{May 2022 -- Aug 2022}{%
+  \textbf{Machine Learning Intern} $|$ \textit{Fellowship.AI}, Remote
+  \begin{cvitems}
+    \item Integrated an InsetGAN-based whole-body image-generation pipeline (StyleGAN-Human with InsetGAN joint optimization) and built FastAPI inference serving for a Swift iOS application; reported evaluation on 500 generated samples and 2.3-second inference latency.
+  \end{cvitems}}
+
+% ── Projects ─────────────────────────────────────────────────────────────────
+\cvsec{Selected Research \& Computational Projects}
+
+\noindent\textbf{\href{https://github.com/AdebanjiAdelowo/fem-cylinder-flow}{Finite-Element Solver for 2D Incompressible Flow: Sch\"afer--Turek Cylinder Benchmarks}}
+\begin{cvitems}
+  \item Implemented Taylor--Hood finite-element methods for two-dimensional incompressible Navier--Stokes flow past a cylinder, with manufactured-solution convergence checks.
+  \item Compared the steady 2D-1 and periodic 2D-2 regimes with published benchmark quantities; including drag, lift and flow dynamics.
+\end{cvitems}
+
+\noindent\textbf{\href{https://github.com/AdebanjiAdelowo/Master-Thesis}{Optimal Mixing of Passive Scalars: M.Sc.\ Thesis and Numerical Convergence Study}}
+\begin{cvitems}
+  \item Studied energy- and enstrophy-constrained optimal stirring and implemented the Lin--Thiffeault--Doering greedy strategy with a pseudo-spectral solver.
+  \item Extended the numerical resolution study to $N=512$; identified changes in fitting windows as a major explanation of apparent resolution dependence. 
+\end{cvitems}
+
+\noindent\textbf{\href{https://github.com/AdebanjiAdelowo/photoacoustic-reconstruction}{Photoacoustic Reconstruction: Model-Based vs.\ Learned Inversion}}
+\begin{cvitems}
+  \item Built a synthetic sparse-view acoustic inversion pipeline comparing time reversal, Tikhonov regularisation and learned U-Net refinement.
+  \item Across 400 held-out images and five network seeds, learned refinement improved PSNR over calibrated time reversal by 4.9\,dB (16 sensors) and 3.2\,dB (64 sensors).
+\end{cvitems}
+
+\noindent\textbf{\href{https://github.com/AdebanjiAdelowo/lorenz96-data-assimilation}{Ensemble Kalman Filtering for the Chaotic Lorenz-96 System}}
+\begin{cvitems}
+  \item Implemented ensemble Kalman filtering with cyclic localisation and inflation for partially observed Lorenz-96 dynamics.
+  \item Cross-checked the assimilation implementation against a linear-Gaussian Kalman-filter reference and evaluated localisation, inflation and ensemble-size effects.
+\end{cvitems}
+
+\noindent\textbf{\href{https://github.com/AdebanjiAdelowo/neural-surrogate-burgers}{ROM, Hyper-Reduction and Neural Operators for Viscous Burgers' Equation}}
+\begin{cvitems}
+  \item Compared a pseudo-spectral reference solver with POD--Galerkin reduced-order modelling, DEIM hyper-reduction, an MLP and a Fourier Neural Operator.
+  \item The POD-ROM reached 0.152\% relative $L^2$ error on the in-distribution benchmark, while the FNO reached 0.90\%.
+  \item Distinguished basis projection error, reduced-dynamics stability, hyper-reduction efficiency and learned-operator generalisation.
+\end{cvitems}
+
+% ── Skills ───────────────────────────────────────────────────────────────────
+
+\cvsec{Generative AI \& Retrieval Projects}
+\noindent\textbf{\href{https://github.com/AdebanjiAdelowo/multimodal-visual-rag}{Multimodal Visual RAG}:} Evaluated OCR-text, dense and visual retrieval over 1,360 textbook pages and 215 queries. Text hybrid nDCG@10 was 0.689; adding ColSmol reached 0.695. Grounded generation improved with OCR evidence, evaluating grounded answer generation.
+
+\noindent\textbf{\href{https://github.com/AdebanjiAdelowo/legal-research-rag}{Legal Research RAG}:} Compared BM25, dense and hybrid case-law retrieval over 2,000 queries. BM25 nDCG@10 was 0.176 versus 0.186 for score fusion; legal-domain dense retrieval improved over its general-purpose parent in a Kaggle T4 experiment.
+
+\noindent\textbf{\href{https://github.com/AdebanjiAdelowo/research-innovation-monitor}{Research \& Innovation Monitor}:} Evaluated scholarly and patent retrieval on SciFact, SCIDOCS, LitSearch and DAPFAM; fusion nDCG@10 was 0.7598, 0.2104, 0.5324 and 0.2433 respectively. Completed a validated Kaggle T4 evaluation stage.
+
+
+
+\cvsec{Technical Skills}
+
+\noindent
+\textbf{Programming:} Python \textbar{} MATLAB \textbar{} \LaTeX{}\\
+\textbf{Machine Learning:} PyTorch \textbar{} scikit-learn \textbar{} classification \textbar{} predictive modelling \textbar{} deep learning \textbar{} generative modelling\\
+\textbf{Scientific Computing:} NumPy \textbar{} SciPy \textbar{} numerical optimization \textbar{} finite-element methods \textbar{} pseudo-spectral methods \textbar{} PDE solvers\\
+\textbf{Mathematics:} Mathematical modelling \textbar{} optimization \textbar{} numerical analysis \textbar{} PDEs \textbar{} dynamical systems \textbar{} variational methods \textbar{} probability \textbar{} statistics\\
+\textbf{Signal \& Data Processing:} FFT / spectral analysis \textbar{} telemetry processing \textbar{} statistical analysis \textbar{} SQL \textbar{} Apache Spark \textbar{} Databricks\\
+\textbf{Software \& Infrastructure:} FastAPI \textbar{} REST APIs \textbar{} Git/GitHub \textbar{} Kubernetes \textbar{} MLflow \textbar{} AWS \textbar{} Terraform
+
+% ── Teaching ─────────────────────────────────────────────────────────────────
+\cvsec{Teaching and Academic Leadership}
+
+\entry{2016 -- 2018}{%
+  \textbf{Founder \& President, Inter-University Mathematics Club} \textbar{} Nigeria
+  \begin{cvitems}
+    \item Established a cross-university mathematics mentorship network
+    \item Organised seminars on mathematics, research, and research careers
+  \end{cvitems}
+}
+
+\entry{2015 -- 2018}{%
+  \textbf{Academic Director / Peer Tutor, NAMSS} \textbar{} Obafemi Awolowo University
+  \begin{cvitems}
+    \item Coordinated academic workshops
+    \item Tutored undergraduate students in mathematical analysis and mathematical reasoning
+  \end{cvitems}
+}
+
+% ── Honours ──────────────────────────────────────────────────────────────────
+\cvsec{Honours and Scholarships}
+
+\honor{\normalfont University of L'Aquila International Scholarship}{University of L'Aquila}{2018 -- 2021}
+\honor{Professor S.S.\ Okoya Prize}{Excellence in Applied Mathematics}{2018}
+\honor{MTN Foundation Scholarship}{Merit-based undergraduate scholarship}{2014 -- 2018}
+\honor{PTDF Scholarship}{Petroleum Technology Development Fund, Nigeria}{2014 -- 2018}
+\honor{Murli T.\ Chellaram Foundation Scholarship}{Academic Excellence Award}{2014 -- 2018}
+
+% ── Certifications ─────────────────────────────────────────────────────────\n\cvsec{Certifications}\n\noindent IBM Data Science Professional Certificate (IBM / Coursera, 2020); Machine Learning (Stanford University / Coursera, 2020).\n\n% ── Languages ────────────────────────────────────────────────────────────────
+\cvsec{Languages}
+
+\noindent English: C1 \quad\textbar\quad Italian: A2
+
+\vfill
+{\small\color{black!50}
+L'Aquila, October 2026}
+
+\end{document}

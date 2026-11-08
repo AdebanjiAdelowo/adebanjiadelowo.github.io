@@ -5,6 +5,10 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '23 6 * * 1'
+permissions:
+  contents: read
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -17,6 +21,10 @@ jobs:
         run: python3 scripts/build.py --check
       - name: Check links, metadata, and sitemap
         run: python3 scripts/check_site.py
+      - name: Test the link checker
+        run: python3 scripts/test_check_links.py
+      - name: Audit links, assets and downloads as a signed-out visitor
+        run: python3 scripts/check_links.py --external
       - name: Validate project data and canonical domain
         run: |
           python3 - <<'PY'
@@ -42,3 +50,36 @@ jobs:
         run: |
           python3 -m http.server 8765 --bind 127.0.0.1 &
           python3 scripts/test_mobile.py
+
+  deploy:
+    # Deploys only after every check above passes. The mirror repository
+    # publishes through its own sync workflow, so this job runs here only.
+    needs: validate
+    if: github.repository == 'AdebanjiAdelowo/adebanjiadelowo.github.io' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Verify the live site and downloads as a signed-out visitor
+        run: |
+          for attempt in 1 2 3 4 5; do
+            python3 scripts/check_links.py --live "${{ steps.deployment.outputs.page_url }}" && exit 0
+            echo "Live check failed (attempt $attempt); waiting for the CDN"
+            sleep 30
+          done
+          exit 1
