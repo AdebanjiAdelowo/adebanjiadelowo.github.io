@@ -79,6 +79,12 @@ class SiteFixture(unittest.TestCase):
         (self.root / 'downloads/cv/Academic_CV_Adelowo.tex').unlink()
         self.assertTrue(any('required download missing' in e for e in self.errors()))
 
+    def test_tex_with_escaped_newlines(self):
+        (self.root / 'downloads/cv/Academic_CV_Adelowo.tex').write_text(
+            '\\documentclass{article}\\begin{document}\n'
+            '% Certifications\\n\\cvsec{Certifications}\\n\\noindent text\n\\end{document}\n')
+        self.assertTrue(any('not a valid tex' in e for e in self.errors()))
+
     def test_compat_copy_drift(self):
         (self.root / 'cv.pdf').write_bytes(PDF + b'changed')
         self.assertTrue(any('compatibility copy cv.pdf' in e for e in self.errors()))

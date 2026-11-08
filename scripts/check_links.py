@@ -116,7 +116,12 @@ def valid_file(path, kind):
         return len(data) > 1024 and data.startswith(b'%PDF-') and b'%%EOF' in data[-2048:]
     if kind == 'tex':
         text = data.decode('utf-8', 'replace')
-        return '\\documentclass' in text and '\\end{document}' in text
+        # A literal backslash-n that does not begin a command such as \noindent is an
+        # escaped newline pasted into the source; after a % it silently comments
+        # out everything that follows on the line.
+        escaped_newline = re.search(r'\\n(?![A-Za-z])', text)
+        return ('\\documentclass' in text and '\\begin{document}' in text
+                and '\\end{document}' in text and not escaped_newline)
     return len(data) > 0
 
 
