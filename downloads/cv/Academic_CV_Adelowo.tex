@@ -11,6 +11,7 @@
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage{needspace}
 
 \definecolor{accent}{RGB}{0,73,144}
 
@@ -19,13 +20,16 @@
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2pt}
+\widowpenalty=10000
+\clubpenalty=10000
 
 % Section header
 \newcommand{\cvsec}[1]{%
+  \needspace{5\baselineskip}% keep the heading with the start of its section
   \vspace{3pt}
   {\color{accent}\bfseries\uppercase{#1}}\\[-3pt]
   {\color{accent}\rule{\linewidth}{0.5pt}}%
-  \vspace{1pt}
+  \vspace{4pt}%
 }
 
 % Two-column entry: date on left, content on right
@@ -37,7 +41,7 @@
 
 % Compact bullet list for use inside \entry
 \newenvironment{cvitems}{%
-  \begin{itemize}[leftmargin=1.1em, itemsep=1pt, topsep=2pt, parsep=0pt, label=\textbullet]
+  \begin{itemize}[leftmargin=1.1em, itemsep=1pt, topsep=2pt, parsep=0pt, label=\textbullet, beginpenalty=10000]
 }{%
   \end{itemize}%
 }
@@ -235,7 +239,7 @@
 % ── Honours ──────────────────────────────────────────────────────────────────
 \cvsec{Honours and Scholarships}
 
-\honor{\normalfont University of L'Aquila International Scholarship}{University of L'Aquila}{2018 -- 2021}
+\honor{University of L'Aquila International Scholarship}{University of L'Aquila}{2018 -- 2021}
 \honor{Professor S.S.\ Okoya Prize}{Excellence in Applied Mathematics}{2018}
 \honor{MTN Foundation Scholarship}{Merit-based undergraduate scholarship}{2014 -- 2018}
 \honor{PTDF Scholarship}{Petroleum Technology Development Fund, Nigeria}{2014 -- 2018}
