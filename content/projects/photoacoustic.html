@@ -1,7 +1,7 @@
 <p class="method-tags"><span class="tag">Photoacoustic tomography</span><span class="tag">Tikhonov inversion</span><span class="tag">Unrolled networks</span><span class="tag">Distribution shift</span><span class="tag">Preregistered experiments</span></p>
         <div class="research-facet">
           <h2 class="facet-label">Problem</h2>
-          <p>Reconstructing the initial pressure distribution of an imaged structure from sparse-view photoacoustic sensor measurements, a PDE-governed acoustic inverse problem in which classical time-reversal reconstruction degrades into streak artefacts as the sensor array is undersampled. The study asks when a learned reconstruction is better than a model-based one, what that advantage depends on, and what explains its failures on images unlike the training set.</p>
+          <p>Photoacoustic tomography tries to reconstruct an image from sound waves measured by sensors. With fewer sensors, the usual time-reversal method produces streaks. I wanted to see when a learned reconstruction could do better, and why it sometimes fails on images that look different from its training data.</p>
         </div>
 
         <div class="research-facet">
@@ -11,7 +11,7 @@
 
         <div class="research-facet">
           <h2 class="facet-label">Verification</h2>
-          <p>400 held-out test images and 5 independently trained networks per learned method, with 95% bootstrap intervals over images reported separately from the spread between networks. The Tikhonov matrix reproduces the simulator, and its adjoint, gradient and normal equations are tested. The protocols of the mismatch, unrolled and mixed-family experiments were fixed before their results were seen. The two follow-up experiments were preregistered: hypotheses, numerical thresholds and decision rules were committed to the repository before any network was trained or any test image reconstructed, and negative and unexpected outcomes are reported as they came.</p>
+          <p>I evaluated each learned method using 400 held-out images and five independently trained networks. I reported 95% bootstrap intervals over images separately from the variation between networks. The Tikhonov matrix reproduces the simulator, and its adjoint, gradient and normal equations are tested. The protocols of the mismatch, unrolled and mixed-family experiments were fixed before their results were seen. The two follow-up experiments were preregistered: hypotheses, numerical thresholds and decision rules were committed to the repository before any network was trained or any test image reconstructed, and negative and unexpected outcomes are reported as they came.</p>
         </div>
 
         <div class="research-facet">
@@ -22,7 +22,7 @@
 
         <div class="research-facet">
           <h2 class="facet-label">Learned prior and its limits</h2>
-          <p>The unrolled network trained with noise is 8 to 15 dB ahead of noise-matched Tikhonov at every noise level on the blob test set, without being told the noise level; the exception is noiseless 64-sensor data, where Tikhonov inverts its own model exactly. That margin depends on the training images. On sharp-edged discs, which the network never saw, the lead is gone.</p>
+          <p>On the blob test images, the noise-trained unrolled network scored 8 to 15 dB higher than noise-matched Tikhonov across the tested noise levels, even without knowing the noise level. The exception was noiseless data from 64 sensors, where Tikhonov could invert the matching model exactly. But the network's lead disappeared on sharp-edged discs it had not seen in training.</p>
           <p>Training the same network on four phantom families together (blobs, discs, ellipses, rectangles) restores a large advantage on all four, at a cost of 2 to 4 dB on blobs under strong noise. The advantage does not transfer to an unseen family of thin vessel-like lines: at 14 dB SNR the mixed network is 2.3 dB ahead of Tikhonov with 16 sensors and 3.2 dB behind it with 64. Going from 16 to 64 sensors improves Tikhonov by 7.4 dB on these images and the network by 1.9 dB, so more sensors help the model-based method more than a network whose prior does not fit the image.</p>
           <div class="stat-row">
             <div class="stat"><span class="stat-value">+11 to +18 dB</span><span class="stat-label">Mixed network vs. Tikhonov, trained sharp-edged families, 26 and 14 dB SNR</span></div>
@@ -37,8 +37,8 @@
 
         <div class="research-facet">
           <h2 class="facet-label">Prior-shift analysis</h2>
-          <p>Two controlled sweeps vary one image property with everything else held fixed and nothing retrained. With 64 sensors at 14 dB SNR, the mixed network moves from 6.0 dB behind Tikhonov on vessels one pixel wide to 7.7 dB ahead on vessels four or more pixels wide, so the vessel failure is one of thin structures. The disc edge-blur sweep is non-monotonic: the mixed network's advantage falls from 13 dB on sharp discs to 1.5 to 2.7 dB at one pixel of blur, then recovers to 7 to 8 dB for smoother edges. The prediction that it would keep its advantage under blur was wrong.</p>
-          <p>A Mahalanobis distance from the training images, built on seven structural image statistics, correlates with the loss of advantage when families are pooled (Spearman &minus;0.60 and &minus;0.66 for the mixed networks at 14 dB SNR), but within a family it has no consistent sign and it rates the half-blurred discs as close to the training set. It ranks families; it is not a reliable per-image failure detector.</p>
+          <p>Two controlled sweeps vary one image property with everything else held fixed and nothing retrained. With 64 sensors at 14 dB SNR, the mixed network moves from 6.0 dB behind Tikhonov on vessels one pixel wide to 7.7 dB ahead on vessels four or more pixels wide, so the vessel failure is one of thin structures. The disc edge-blur sweep is non-monotonic: the mixed network's advantage falls from 13 dB on sharp discs to 1.5 to 2.7 dB at one pixel of blur, then recovers to 7 to 8 dB for smoother edges. My prediction that the network would keep its advantage as edges became blurred was wrong.</p>
+          <p>A Mahalanobis distance from the training images, built on seven structural image statistics, correlates with the loss of advantage when families are pooled (Spearman &minus;0.60 and &minus;0.66 for the mixed networks at 14 dB SNR), but within a family it has no consistent sign and it rates the half-blurred discs as close to the training set. That makes the distance useful for comparing image families, but not reliable for flagging individual failures.</p>
         </div>
 
         <figure class="result-figure">
@@ -61,11 +61,11 @@
             <div class="stat"><span class="stat-value">&minus;0.70 dB</span><span class="stat-label">Straight minus curved at the thinnest profile [&minus;1.06, &minus;0.32]</span></div>
             <div class="stat"><span class="stat-value">+12.58 dB</span><span class="stat-label">Sharp bars of trained width minus a 1 px sharp bar [12.12, 13.03]</span></div>
           </div>
-          <p><strong>The residual failure was reproduced.</strong> On the thinnest curved line with 64 sensors, Tikhonov reaches 36.42 dB and the networks 32.97 dB. The earlier sweep had given &minus;3.96 dB on 20 other images.</p>
-          <p><strong>Structural thinness was supported.</strong> At a fixed edge width of one pixel, a line 6 pixels wide is 10.54 dB better relative to Tikhonov than the thinnest line, in all five networks and on straight and curved lines alike. Of that difference, 6.69 dB is the networks scoring higher on the wide line and 3.85 dB is Tikhonov scoring lower on it, so part of the effect is the classical method doing well on thin lines.</p>
-          <p><strong>Curvature was not supported as a cause.</strong> Curved lines were slightly better than straight ones at every thin profile tested, by 0.2 to 0.7 dB.</p>
-          <p><strong>Sharp thin bars also lose the advantage.</strong> A sharp-edged bar one pixel wide is 1.07 dB ahead of Tikhonov, against 13 to 14 dB for bars 4 and 6 pixels wide, whose widths lie inside the training range.</p>
-          <p><strong>The edge-profile positive control was not reproduced with 64 sensors.</strong> On bars 6 pixels wide the control networks showed the expected dip (6.43 dB), and the intervention improved the one-pixel edge by 6.23 dB [6.01, 6.44], but the preset valley-gain criterion came out at 2.78 dB against a required 3 dB. Edge profile remained influential descriptively, but its preregistered positive control narrowly missed the confirmation threshold, so the edge-axis interpretation was left unvalidated.</p>
+          <p><strong>The remaining failure appeared again.</strong> On the thinnest curved line with 64 sensors, Tikhonov reaches 36.42 dB and the networks 32.97 dB. The earlier sweep had given &minus;3.96 dB on 20 other images.</p>
+          <p><strong>Thin structures were the clearest problem.</strong> At a fixed edge width of one pixel, a line 6 pixels wide is 10.54 dB better relative to Tikhonov than the thinnest line, in all five networks and on straight and curved lines alike. Of that difference, 6.69 dB is the networks scoring higher on the wide line and 3.85 dB is Tikhonov scoring lower on it, so part of the effect is the classical method doing well on thin lines.</p>
+          <p><strong>Curvature did not explain the failure.</strong> Curved lines were slightly better than straight ones at every thin profile tested, by 0.2 to 0.7 dB.</p>
+          <p><strong>Sharp, thin bars also lost most of the advantage.</strong> A sharp-edged bar one pixel wide is 1.07 dB ahead of Tikhonov, against 13 to 14 dB for bars 4 and 6 pixels wide, whose widths lie inside the training range.</p>
+          <p><strong>The edge-profile check fell short with 64 sensors.</strong> On bars 6 pixels wide the control networks showed the expected dip (6.43 dB), and the intervention improved the one-pixel edge by 6.23 dB [6.01, 6.44], but the preset valley-gain criterion came out at 2.78 dB against a required 3 dB. Edge profile remained influential descriptively, but its preregistered positive control narrowly missed the confirmation threshold, so the edge-axis interpretation was left unvalidated.</p>
           <p>No interaction between factors reached the preset flag with 64 sensors. The preset rule returned the classification <code>mixed: thinness, edge profile (edge axis not validated: H2 not reproduced)</code>. In plain terms: structural thinness was the best-supported remaining factor, curvature was not supported as a cause, and the relative contribution of edge profile remained unresolved.</p>
         </div>
 

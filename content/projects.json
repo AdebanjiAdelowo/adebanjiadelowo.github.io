@@ -8,12 +8,12 @@
     "result": "An unrolled network trained on four phantom families is 11 to 18 dB ahead of noise-matched Tikhonov on its sharp-edged training families, but behind it on unseen thin structures with 64 sensors. Two preregistered experiments followed: an intervention repaired one gap in the learned prior, and a factorial diagnostic found structural thinness the best-supported remaining factor, with curvature not supported as a cause and the role of edge profile unresolved. All data are synthetic.",
     "image": "images/photoacoustic/thin_structure_width_response.png",
     "code": "https://github.com/AdebanjiAdelowo/photoacoustic-reconstruction",
-    "purpose": "Testing when a learned reconstruction beats model-based inversion, and why it fails under distribution shift.",
+    "purpose": "I wanted to understand when a learned reconstruction works better than a classical method—and what happens when the images change.",
     "status": "Completed synthetic study · two preregistered experiments reported",
     "image_alt": "PSNR advantage over Tikhonov against the core width of straight lines at five fixed edge widths, for the control and intervention networks with 16 and 64 sensors at 14 dB SNR; with 64 sensors the advantage is negative for narrow soft lines and rises with width, with 16 sensors it is positive everywhere",
     "image_caption": "Thin-structure diagnostic · 50 images per point",
     "badge": "Verified results",
-    "summary": "Synthetic inverse problem comparing Tikhonov inversion with learned reconstruction. A network far ahead on its training image families fell behind on unseen thin structures, and two preregistered experiments tested why."
+    "summary": "On synthetic images similar to its training data, the learned model did very well. It struggled with thin structures it had never seen, so I ran two preregistered experiments to investigate the gap."
   },
   {
     "slug": "burgers-rom",
@@ -24,28 +24,28 @@
     "result": "ROM error: 0.152% in-distribution and 1.7% on the tested unseen initial-condition family, where the FNO reaches 22.6%.",
     "image": "images/burgers-rom/deim_fno_comparison.png",
     "code": "https://github.com/AdebanjiAdelowo/neural-surrogate-burgers",
-    "purpose": "Comparing fast approximations of nonlinear transport.",
+    "purpose": "How well can a smaller or learned model reproduce a nonlinear PDE solution?",
     "status": "Research implementation",
     "image_alt": "Three in-distribution test cases comparing ground truth, POD-ROM, DEIM-ROM, MLP surrogate, and FNO solutions of the viscous Burgers' equation",
     "image_caption": "Research figure · open case study for context",
     "badge": "Verified results",
-    "summary": "Compared classical and learned PDE surrogates: POD achieved 0.152% relative L² error versus 0.90% for FNO on 40 in-distribution cases (five FNO seeds)."
+    "summary": "I compared classical reduced models with neural surrogates for Burgers’ equation. Across 40 in-distribution cases, POD reached 0.152% relative L² error, compared with 0.90% for FNO (five seeds)."
   },
   {
     "slug": "lorenz96",
     "title": "Data assimilation for chaotic Lorenz-96",
     "category": "Dynamical systems · Uncertainty",
     "group": "inverse",
-    "contribution": "I implemented and independently checked an ensemble Kalman filter, then studied localisation, ensemble size, and filter failure.",
+    "contribution": "I wrote and checked an Ensemble Kalman filter, then explored how localisation and ensemble size affect its estimates—and when the filter fails.",
     "result": "Localisation reduces RMSE from 4.63 (a diverged unlocalised filter) to 0.41, below the observation noise (10 seeds).",
     "image": "images/lorenz96-data-assimilation/localization_study_full.jpg",
     "code": "https://github.com/AdebanjiAdelowo/lorenz96-data-assimilation",
-    "purpose": "Estimating chaotic system states from noisy observations.",
+    "purpose": "Can we recover the state of a chaotic system when the observations are noisy and incomplete?",
     "status": "Research implementation",
     "image_alt": "Assimilation RMSE versus Gaspari-Cohn localisation radius, showing over an eleven-fold reduction relative to the unlocalized baseline at the best tested radius",
     "image_caption": "Research figure · open case study for context",
     "badge": "Verified results",
-    "summary": "In a 10-seed study with a selected localisation radius, reduced state-estimation RMSE from 4.63 to 0.41 using Ensemble Kalman filtering."
+    "summary": "I tested an Ensemble Kalman filter on Lorenz-96. With the selected localisation radius, the RMSE fell from 4.63 to 0.41 across 10 seeds; the unlocalised filter had diverged."
   },
   {
     "slug": "mixing",
@@ -56,26 +56,26 @@
     "result": "Extended to N=512: the apparent resolution dependence of the fitted mixing exponent is primarily a moving-fit-window effect; on fixed time windows it converges at about second order.",
     "image": "images/thesis/thesis_02.png",
     "code": "https://github.com/AdebanjiAdelowo/Master-Thesis",
-    "purpose": "Reproducible pseudo-spectral study of optimal passive-scalar mixing.",
+    "purpose": "Revisiting my master’s thesis on passive-scalar mixing with a Python solver and finer grids.",
     "status": "2021 thesis · resolution study extended in 2026",
     "image_alt": "Plot of log H-1 mix norm decaying linearly over time, alongside conserved L2, L4 and L8 norms",
     "image_caption": "Research figure · open case study for context",
-    "summary": "Extended M.Sc. thesis computations to N=512 with 48 verification tests; established approximately second-order convergence of fixed-window exponent fits."
+    "summary": "I extended the thesis computations to N=512 and added 48 verification tests. When I fitted the mixing exponent over the same time window at each resolution, it converged at roughly second order."
   },
   {
     "slug": "cylinder-flow",
     "title": "Finite-element cylinder-flow benchmarks",
     "category": "CFD · Finite elements",
     "group": "numerical",
-    "contribution": "I implemented a Taylor–Hood solver and evaluated geometry, mesh, time-step, and force-definition effects against cylinder-flow benchmarks.",
+    "contribution": "I built a Taylor–Hood finite-element solver and checked how mesh resolution, curved geometry, time steps and force definitions change the benchmark results.",
     "result": "Verified O(h³)/O(h²) velocity convergence; complete unsteady benchmark reproduction is not claimed.",
     "image": "images/fem-cylinder-flow/2d1_fields_full.jpg",
     "code": "https://github.com/AdebanjiAdelowo/fem-cylinder-flow",
-    "purpose": "Measuring solver accuracy on standard cylinder-flow problems.",
+    "purpose": "Checking a finite-element flow solver against established cylinder-flow benchmarks.",
     "status": "Research implementation · validation limitations documented",
     "image_alt": "Velocity magnitude with streamlines, pressure field, and vorticity field around the cylinder at the finest 2D-1 steady mesh",
     "image_caption": "Research figure · open case study for context",
     "badge": "Verified results",
-    "summary": "Taylor–Hood finite-element solver verified at O(h³)/O(h²) velocity convergence, with steady cylinder-flow results closely matching the published reference."
+    "summary": "I checked the Taylor–Hood solver’s convergence rates and compared its steady cylinder-flow predictions with published values. The velocity errors followed the expected O(h³)/O(h²) rates."
   }
 ]
