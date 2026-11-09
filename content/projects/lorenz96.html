@@ -1,12 +1,12 @@
 <p class="method-tags"><span class="tag">Data Assimilation</span><span class="tag">EnKF</span><span class="tag">Dynamical Systems</span><span class="tag">Chaos</span></p>
         <div class="research-facet">
           <h2 class="facet-label">Problem</h2>
-          <p>Estimating the state of a chaotic 40-dimensional dynamical system (Lorenz-96, K=40, F=8) from sparse, noisy observations, and characterising how ensemble size, localisation, and inflation govern filter performance and failure.</p>
+          <p>I wanted to know how reliably an Ensemble Kalman filter could recover the state of a chaotic system from sparse, noisy observations. I used the 40-variable Lorenz-96 model (K=40, F=8) and tested how localisation, ensemble size and inflation affect the result.</p>
         </div>
 
         <div class="research-facet">
           <h2 class="facet-label">Approach</h2>
-          <p>RK4 integration of the Lorenz-96 ODEs; Benettin two-trajectory renormalisation for the largest Lyapunov exponent; stochastic Ensemble Kalman Filter with perturbed observations; Gaspari&ndash;Cohn covariance localisation; multiplicative inflation.</p>
+          <p>I solved the Lorenz-96 equations with RK4 and estimated the largest Lyapunov exponent using the two-trajectory Benettin method. For state estimation, I used a stochastic Ensemble Kalman filter, Gaspari&ndash;Cohn localisation and multiplicative inflation.</p>
         </div>
 
         <div class="research-facet">
@@ -25,7 +25,7 @@
 
         <div class="research-facet">
           <h2 class="facet-label">Limitations</h2>
-          <p>The localisation radius was chosen from the same 10 seeds that are reported (the next radius tested still gives a 9.5&times; reduction). Inflation alone is insufficient (best RMSE 3.16). Some observation-density and observation-frequency effects are non-monotonic and not explained. The model parameters are known; only the state is estimated.</p>
+          <p>The localisation radius was chosen from the same 10 seeds that are reported (the next radius tested still gives a 9.5&times; reduction). Inflation alone is insufficient (best RMSE 3.16). Some observation-density and observation-frequency effects are non-monotonic and not explained. The model parameters are assumed known; I estimated only the state.</p>
         </div>
 
         <figure class="result-figure">
