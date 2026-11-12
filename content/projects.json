@@ -52,7 +52,7 @@
     "title": "Optimal mixing of passive scalars",
     "category": "M.Sc. thesis · Applied mathematics",
     "group": "numerical",
-    "contribution": "My 2021 M.Sc. thesis studied bounds on passive-scalar mixing (University of L’Aquila; supervisor: Prof. Stefano Spirito). The subsequent Python implementation, numerical report and resolution study extend that work.",
+    "contribution": "My 2021 M.Sc. thesis studied bounds on passive-scalar mixing (University of L’Aquila). The subsequent Python implementation, numerical report and resolution study extend that work.",
     "result": "Extended to N=512: the apparent resolution dependence of the fitted mixing exponent is primarily a moving-fit-window effect; on fixed time windows it converges at about second order.",
     "image": "images/thesis/thesis_02.png",
     "code": "https://github.com/AdebanjiAdelowo/Master-Thesis",
